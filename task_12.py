@@ -11,7 +11,10 @@ class JellyBean(task_11.Dessert):
     
     @flavor.setter
     def flavor(self, flavor):
-        self.__flavor = flavor
+        if isinstance(flavor, str):
+            self.__flavor = flavor
+        else:
+            raise Exception('flavor need to be str datatype') 
 
     def is_delicious(self):
         if self.__flavor != 'black licorice':

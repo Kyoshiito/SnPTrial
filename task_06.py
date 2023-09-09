@@ -27,9 +27,7 @@ def rps_game_winner(players_array):
         else:
             raise WrongNumberOfPlayersError
     except WrongNumberOfPlayersError:
-        return WrongNumberOfPlayersError()
-    except NoSuchStrategyError:
-        return NoSuchStrategyError()
+        raise WrongNumberOfPlayersError()
 
     if (
         players_array[0][1] == "P"
@@ -52,7 +50,7 @@ def rps_game_winner(players_array):
     else:
         return f"{players_array[1][0]} {players_array[1][1]}"
 
-print(rps_game_winner([["player1", "P"], ["player2", "S"], ["player3", "S"]]))
-print(rps_game_winner([["player1", "P"], ["player2", "A"]]))
+#print(rps_game_winner([["player1", "P"], ["player2", "S"], ["player3", "S"]]))
+#print(rps_game_winner([["player1", "P"], ["player2", "A"]]))
 print(rps_game_winner([["player1", "P"], ["player2", "S"]]))
 print(rps_game_winner([["player1", "P"], ["player2", "P"]]))

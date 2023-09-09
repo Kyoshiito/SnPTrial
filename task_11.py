@@ -9,7 +9,10 @@ class Dessert:
     
     @name.setter
     def name(self, name):
-        self.__name = name
+        if isinstance(name, str):
+            self.__name = name
+        else:
+            raise Exception('Setter work only with str')
 
     @property
     def calories(self):
@@ -17,7 +20,10 @@ class Dessert:
     
     @calories.setter
     def calories(self, calories):
-        self.__calories = calories
+        if isinstance(calories, (int, float)):
+            self.__calories = calories
+        else:
+            raise Exception('Setter work only with int, float')
 
     def is_healthy(self):
         if self.__calories < 200:
@@ -28,6 +34,8 @@ class Dessert:
     def is_delicious(self):
         if Dessert:
             return True
+        else:
+            return False
     
 
 example = Dessert("something", 150)
